@@ -1,18 +1,34 @@
 import React from 'react'
 import { Button } from '@chakra-ui/core'
-
+import {action ,actions}  from "@storybook/addon-actions"
 export default {
   title: 'Chakra/Button',
   component: Button
 }
 
 export const Success = () => (
-  <Button variantColor='green' >
+  <Button onClick={action("Click handler")} variantColor='green' >
     Success
   </Button>
 )
 export const Danger = () => (
-  <Button variantColor='red' >
+  <Button {...actions("onClick","onMouseOver")} variantColor='red' >
     Danger
   </Button>
 )
+export const Log = ()=>(
+  <Button 
+    variantColor="blue" 
+    onClick={() => console.log("Button clicked")}
+  >
+    Log
+  </Button>
+)
+// export const Log = () => (
+//   <Button
+//     variantColor='blue'
+//     onClick={() => console.log('Button clicked')}
+//   >
+//     Log
+//   </Button>
+// )
